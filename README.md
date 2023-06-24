@@ -6,7 +6,13 @@ A helm chart of the application is also attached as zip in the same folder which
 
 Also build the application tag and push the image to gitlab container registry or docker-hub or any repository and give the path of image accordingly in helm chart.
 
-While installing the helm chart use release name as demoapp
+Use this command to create secret named regcred before helm chart is installed
+
+kubectl create secret docker-registry regcred --docker-server=https://index.docker.io/v1/ --docker-username=your_user_name --docker-password=your_password --docker-email=your_email_id
+
+docker-server is having value "https://index.docker.io/v1/" beacause we are using docker-hub to upload image of application
+
+Change the value of your_user_name and your_password and your_email_id with your details.
 
 Command for helm Installation => helm install demoapp ./
 
